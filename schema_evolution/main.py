@@ -1,7 +1,10 @@
-from pydantic import BaseModel, ValidationError
+from pydantic import BaseModel, ValidationError, ConfigDict
 
 # This is our 'Contract' for the source data
 class UserSchema(BaseModel):
+    # Use if you want to forbid extra fields
+    # model_config = ConfigDict(extra='forbid')
+
     user_id: int
     email: str
     signup_date: str 
